@@ -28,7 +28,6 @@ HOMEWORK_VERDICTS = {
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     filename='example.log',
-    filemode='w',
     level=logging.DEBUG,
     encoding='UTF-8'
 )
@@ -50,8 +49,7 @@ def send_message(bot, message):
     """Отправляет сообщение пользователю."""
     try:
         bot.send_message(TELEGRAM_CHAT_ID, message)
-        message_info = f'Сообщение отправлено: {message}'
-        logging.debug(message_info)
+        logging.debug('Сообщение отправлено')
     except telegram.TelegramError:
         message_error = f'Сообщение не удалось отправить: {message}'
         logging.error(message_error)
@@ -69,7 +67,6 @@ def get_api_answer(timestamp):
             params=time_metka
         )
         if homework_statuses.status_code != HTTPStatus.OK:
-            logging.error('Запрошенный URL не может быть получен')
             raise requests.RequestException('Запрошенный URL не '
                                             'может быть получен')
         return homework_statuses.json()
