@@ -22,7 +22,7 @@ Telegram-бот обращается к API сервиса Практикум.Д
 * Клонировать репозиторий и перейти в него в командной строке:
 
 ```
-git clone git@github.com:vkfedosov/homework_bot.git
+git clone git@github.com:Ant0shich/homework_bot.git
 ```
 
 ```
